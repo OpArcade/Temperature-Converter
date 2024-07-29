@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+   
+</head>
+<body>
+    <main class=" ">
+
+        <video autoplay muted loop id="myVideo" class=" fixed right-0 bottom-0 min-w-full min-h-ful top-0 max-w-0">
+            <source src="./assets/1893623-uhd_3840_2160_25fps.mp4" type="video/mp4">
+          </video>
+
+          <div class="fixed flex p-2 flex-col  justify-center text-center m-auto w-full ">
+
+              <h1 class="text-4xl font-bold  underline xl:my-16">Temperature Convertor</h1>
+              
+              <div class=" flex flex-col lg:max-2xl:flex-row sm:max-md:flex-col justify-center text-center m-auto p-5 gap-10">
+                  <input type="text" id="fahrenheit" placeholder="Fahrenheit" name="f" value="" class="w-72 p-2 text-center border-2 rounded text-base"/>
+                  <input type="text" id="celsius" placeholder="Celsius" name="c" value="" class="w-72 p-2 text-center border-2 rounded text-base"/>
+                  <input type="text" id="kelvin" placeholder="Kelvin" name="k" value="" class="w-72 p-2 text-center border-2 rounded text-base"/>
+                </div>
+                
+                <div class=" flex flex-rtow lg:max-2xl:flex-row sm:max-md:flex-col justify-center text-center m-auto p-5 gap-10">
+                    <button id="convert" class="w-32 p-1 text-center border-2 rounded text-base  font-bold text-white hover:text-black hover:border-black hover:border hover:font-semibold ">Convert</button>
+                    <button id="clear" class="w-32 p-1 text-center border-2 rounded text-base font-bold text-white hover:text-black hover:border-black hover:border hover:font-semibold">Clear</button>
+                </div>
+                
+            </div>
+
+    </main>
+
+
+    <script>
+         document.getElementById('convert').onclick = tempConvert;
+document.getElementById('clear').onclick = clearForm;
+
+function tempConvert() {
+    
+    var fahrenheit = document.getElementById("fahrenheit").value;
+    var celsius = document.getElementById("celsius").value;
+    var kelvin = document.getElementById("kelvin").value;
+  
+  if (fahrenheit != '') 
+  {
+        celsius = (parseFloat(fahrenheit) - 32) * 5/9;
+        kelvin = (parseFloat(fahrenheit) - 32) * 5 / 9 + 273.15;
+    } 
+    else if(celsius !='' )
+    {
+            fahrenheit = (parseFloat(celsius) + 32) * 9/5;
+            Kelvin = (parseFloat(celsius)) + 273.15;
+    }
+
+    else 
+    {
+        fahrenheit = (parseFloat(Kelvin) - 273.15);
+        celsius = (parseFloat(Kelvin) -273.15) * 9/5 + 32;
+    }
+  
+
+
+    document.getElementById('fahrenheit').value = parseFloat(fahrenheit).toFixed(1);
+    document.getElementById('celsius').value = parseFloat(celsius).toFixed(1);
+    document.getElementById('kelvin').value = parseFloat(kelvin).toFixed(1);
+}
+
+
+function clearForm() {
+    document.getElementById('fahrenheit').value = '';
+    document.getElementById('celsius').value = '';
+    document.getElementById('kelvin').value = '';
+} 
+
+
+
+
+    </script>
+
+</body>
+</html>
